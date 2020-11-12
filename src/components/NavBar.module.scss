@@ -1,0 +1,62 @@
+@import '../sass/main.scss';
+
+.Nav {
+  display: flex;
+  flex-flow: column;
+}
+
+.NavBar {
+  display: flex;
+  background-color: #fcf;
+  padding: 40px 20px;
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.NavBarActive {
+  background-color: $color-white;
+}
+
+.Menu {
+  flex: 0 1 30%;
+}
+
+svg.HamburgerMenu {
+  path {
+    fill: black;
+  }
+}
+
+svg.CloseButton {
+  path {
+    fill: black;
+  }
+}
+
+.NavList {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 1 70%;
+
+  li {
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
+
+.Overlay {
+  content: "";
+  height: calc(100vh - 96px);
+  background-color: rgba($black, 0.80);
+
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.NavListDesktop {
+  display: none;
+}
