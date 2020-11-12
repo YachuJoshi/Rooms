@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import styles from "./NavBar.module.scss";
+import Logo from "../images/logo.svg";
 import { ReactComponent as HamburgerMenu } from "../images/icon-hamburger.svg";
 import { ReactComponent as CloseButton } from "../images/icon-close.svg";
 
@@ -26,18 +27,21 @@ export const NavBar = () => {
         />
         {isOpen && (
           <ul className={styles.NavList}>
-            {navItems.map((item) => (
-              <li>{item}</li>
+            {navItems.map((item, index) => (
+              <li key={index}>{item}</li>
             ))}
           </ul>
         )}
       </div>
       {isOpen && <div className={styles.Overlay} />}
-      <ul className={cx(styles.NavListDesktop)}>
-        {navItems.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
+      <div className={styles.NavDesktop}>
+        <img src={Logo} alt="Logo" className={styles.Logo} />
+        <ul className={cx(styles.NavListDesktop)}>
+          {navItems.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };

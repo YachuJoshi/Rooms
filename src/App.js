@@ -6,7 +6,7 @@ import { NavBar, Hero } from "./components";
 function App() {
   return (
     <div className="App">
-      <header>
+      <header style={{ zIndex: 10 }}>
         <NavBar />
       </header>
       <Hero />

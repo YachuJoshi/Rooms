@@ -2,7 +2,8 @@ $grid-breakpoints: (xs: 411px,
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1140px);
+  xl: 1140px,
+  xxl: 1400px);
 
 @function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
   $min: map-get($breakpoints, $name);
