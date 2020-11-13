@@ -10,6 +10,14 @@ const navItems = ["home", "shop", "about", "contact"];
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const MenuIcon = !isOpen ? HamburgerMenu : CloseButton;
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.overflow = "hidden";
+    } else {
+      document.body.overflow = "visible";
+    }
+  }, [isOpen]);
   return (
     <nav className={styles.Nav}>
       <div
