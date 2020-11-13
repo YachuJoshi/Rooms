@@ -1,0 +1,29 @@
+@import '../sass/main.scss';
+
+.Gallery {
+  display: flex;
+  overflow: hidden;
+}
+
+.HeroImageContainer {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  transition: all 0.2s linear;
+
+  @include media-breakpoint-up(lg) {
+    height: 500px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    height: 700px;
+  }
+}
+
+.HeroImage {
+  height: 100%;
+  width: 100%;
+}

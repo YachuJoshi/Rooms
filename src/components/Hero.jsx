@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import cx from "classnames";
 
-import HeroOne from "../images/desktop-image-hero-1.jpg";
-import HeroTwo from "../images/desktop-image-hero-2.jpg";
-import HeroThree from "../images/desktop-image-hero-3.jpg";
 import { ReactComponent as Arrow } from "../images/icon-arrow.svg";
 import { ReactComponent as LeftArrow } from "../images/icon-angle-left.svg";
 import { ReactComponent as RightArrow } from "../images/icon-angle-right.svg";
+
+import { Gallery } from "./Gallery";
+
 import styles from "./Hero.module.scss";
 
 export const Hero = () => {
@@ -14,32 +14,7 @@ export const Hero = () => {
   return (
     <div className={cx(styles.Hero)}>
       <div className={styles.HeroLeft}>
-        <div className={styles.Gallery}>
-          <figure
-            style={{
-              transform: `translate3d(${currentIndex * -100}% , 0, 0)`,
-            }}
-            className={styles.HeroImageContainer}
-          >
-            <img src={HeroOne} alt="Hero" className={styles.HeroImage} />
-          </figure>
-          <figure
-            style={{
-              transform: `translate3d(${currentIndex * -100}% , 0, 0)`,
-            }}
-            className={styles.HeroImageContainer}
-          >
-            <img src={HeroTwo} alt="Hero" className={styles.HeroImage} />
-          </figure>
-          <figure
-            style={{
-              transform: `translate3d(${currentIndex * -100}% , 0, 0)`,
-            }}
-            className={styles.HeroImageContainer}
-          >
-            <img src={HeroThree} alt="Hero" className={styles.HeroImage} />
-          </figure>
-        </div>
+        <Gallery currentIndex={currentIndex} />
       </div>
       <div className={styles.Pagination} style={{}}>
         <div className={styles.ArrowLeft}>
