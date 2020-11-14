@@ -1,0 +1,66 @@
+@import '../sass/main.scss';
+
+.HeroContent {
+
+  @include media-breakpoint-up(lg) {
+    padding: 40px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 60px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 80px 60px;
+  }
+}
+
+.HeroHeading {
+  font-family: 'Poppins', sans-serif;
+  color: $color-black;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.HeroDescription {
+  font-family: 'Oxygen', sans-serif;
+  color: $grey-100;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 20px 0 40px;
+
+  @include media-breakpoint-up(lg) {
+    margin: 32px 0;
+  }
+}
+
+.ShopButton {
+  cursor: pointer;
+  letter-spacing: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.2s ease-out;
+  font-family: 'Sparta', sans-serif;
+
+  @include media-breakpoint-up(lg) {
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &:hover {
+    color: $grey-100;
+
+    svg.Arrow {
+      path {
+        fill: $grey-100;
+      }
+    }
+  }
+}
+
+svg.Arrow {
+  path {
+    fill: $color-black;
+    transition: all 0.2s ease-out;
+  }
+}
