@@ -1,15 +1,14 @@
 import React from "react";
 import "./sass/main.scss";
 
-import { NavBar, Hero } from "./components";
+import { NavBar, Hero, Main } from "./components";
 
 function App() {
   return (
     <div className="App">
-      <header style={{ zIndex: 10 }}>
-        <NavBar />
-      </header>
+      <NavBar />
       <Hero />
+      <Main />
     </div>
   );
 }

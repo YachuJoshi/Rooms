@@ -8,26 +8,28 @@ import styles from "./Pagination.module.scss";
 export const Pagination = ({ setCurrentIndex }) => {
   return (
     <div className={styles.Pagination}>
-      <div className={styles.ArrowLeft}>
-        <LeftArrow
-          onClick={() =>
-            setCurrentIndex((prevIndex) => {
-              if (prevIndex === 0) return 2;
-              return prevIndex - 1;
-            })
-          }
-        />
-      </div>
-      <div className={styles.ArrowRight}>
-        <RightArrow
-          onClick={() =>
-            setCurrentIndex((prevIndex) => {
-              if (prevIndex === 2) return 0;
-              return prevIndex + 1;
-            })
-          }
-        />
-      </div>
+      <button
+        className={styles.ArrowLeft}
+        onClick={() =>
+          setCurrentIndex((prevIndex) => {
+            if (prevIndex === 0) return 2;
+            return prevIndex - 1;
+          })
+        }
+      >
+        <LeftArrow />
+      </button>
+      <button
+        className={styles.ArrowRight}
+        onClick={() =>
+          setCurrentIndex((prevIndex) => {
+            if (prevIndex === 2) return 0;
+            return prevIndex + 1;
+          })
+        }
+      >
+        <RightArrow />
+      </button>
     </div>
   );
 };

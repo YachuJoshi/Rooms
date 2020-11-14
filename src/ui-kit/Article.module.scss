@@ -16,17 +16,21 @@
 }
 
 .HeroHeading {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Spartan', sans-serif;
   color: $color-black;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 700;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 32px;
+  }
 }
 
 .HeroDescription {
   font-family: 'Oxygen', sans-serif;
   color: $grey-100;
   line-height: 1.6;
-  font-size: 14px;
+  font-size: 15.4px;
   margin: 20px 0 40px;
 
   @include media-breakpoint-up(lg) {

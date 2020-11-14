@@ -1,0 +1,73 @@
+@import '../sass/main.scss';
+
+.Container {
+  display: flex;
+  flex-flow: column;
+
+  @include media-breakpoint-up(md) {
+    flex-flow: row;
+    position: relative;
+    padding-bottom: 205px;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
+}
+
+.LeftWrapper,
+.RightWrapper {
+  @include media-breakpoint-up(md) {
+    flex: 0 1 50%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex: 0 1 31%;
+  }
+}
+
+.ImgDarkWrapper,
+.ImgLightWrapper {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.ImgDark,
+.ImgLight {
+  height: 100%;
+  width: 100%;
+}
+
+.Content {
+  padding: 70px 32px;
+
+  @include media-breakpoint-up(md) {
+    padding: 50px 32px;
+    position: absolute;
+    bottom: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 60px 40px;
+    position: relative;
+    flex: 1;
+  }
+}
+
+.Heading {
+  font-family: 'Spartan', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: $color-black;
+  letter-spacing: 4.5px;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.Text {
+  font-family: 'Oxygen', sans-serif;
+  color: $grey-100;
+  line-height: 1.6;
+  font-size: 15.4px;
+}

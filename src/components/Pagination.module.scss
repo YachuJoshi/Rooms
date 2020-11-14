@@ -30,6 +30,7 @@ $padding-lr-lg: 32px;
     padding: 20px 24px;
     background-color: $color-black;
     transition: all 0.2s ease-out;
+    border: none;
 
     &:hover {
       background-color: $grey-200;
@@ -41,6 +42,10 @@ $padding-lr-lg: 32px;
 
     @include media-breakpoint-up(lg) {
       padding: $padding-tb-lg $padding-lr-lg;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      padding: 32px 36px;
     }
   }
 }

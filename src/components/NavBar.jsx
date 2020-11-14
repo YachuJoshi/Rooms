@@ -19,37 +19,39 @@ export const NavBar = () => {
     }
   }, [isOpen]);
   return (
-    <nav className={styles.Nav}>
-      <div
-        className={cx(styles.NavBar, {
-          [styles.NavBarActive]: isOpen,
-          [styles.NavBarDisabled]: !isOpen,
-        })}
-      >
-        <MenuIcon
-          className={cx(styles.Menu, {
-            [styles.HamburgerMenu]: !isOpen,
-            [styles.CloseButton]: isOpen,
+    <header>
+      <nav className={styles.Nav}>
+        <div
+          className={cx(styles.NavBar, {
+            [styles.NavBarActive]: isOpen,
+            [styles.NavBarDisabled]: !isOpen,
           })}
-          onClick={() => setIsOpen((isOpen) => !isOpen)}
-        />
-        {isOpen && (
-          <ul className={styles.NavList}>
+        >
+          <MenuIcon
+            className={cx(styles.Menu, {
+              [styles.HamburgerMenu]: !isOpen,
+              [styles.CloseButton]: isOpen,
+            })}
+            onClick={() => setIsOpen((isOpen) => !isOpen)}
+          />
+          {isOpen && (
+            <ul className={styles.NavList}>
+              {navItems.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+        {isOpen && <div className={styles.Overlay} />}
+        <div className={styles.NavDesktop}>
+          <img src={Logo} alt="Logo" className={styles.Logo} />
+          <ul className={cx(styles.NavListDesktop)}>
             {navItems.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
-        )}
-      </div>
-      {isOpen && <div className={styles.Overlay} />}
-      <div className={styles.NavDesktop}>
-        <img src={Logo} alt="Logo" className={styles.Logo} />
-        <ul className={cx(styles.NavListDesktop)}>
-          {navItems.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-    </nav>
+        </div>
+      </nav>
+    </header>
   );
 };
