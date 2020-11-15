@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import cx from "classnames";
-import styles from "./NavBar.module.scss";
+
 import Logo from "../images/logo.svg";
+
 import { ReactComponent as HamburgerMenu } from "../images/icon-hamburger.svg";
 import { ReactComponent as CloseButton } from "../images/icon-close.svg";
+
+import styles from "./NavBar.module.scss";
 
 const navItems = ["home", "shop", "about", "contact"];
 
@@ -13,11 +17,12 @@ export const NavBar = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.overflow = "hidden";
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.overflow = "visible";
+      document.body.style.overflow = "visible";
     }
   }, [isOpen]);
+
   return (
     <header>
       <nav className={styles.Nav}>
@@ -34,15 +39,34 @@ export const NavBar = () => {
             })}
             onClick={() => setIsOpen((isOpen) => !isOpen)}
           />
-          {isOpen && (
-            <ul className={styles.NavList}>
-              {navItems.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          )}
+          <AnimatePresence>
+            {isOpen && (
+              <motion.ul
+                className={styles.NavList}
+                key="nav"
+                initial={{ translateY: -100 }}
+                animate={{ translateY: 0 }}
+                exit={{ translateY: -100 }}
+              >
+                {navItems.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </motion.ul>
+            )}
+          </AnimatePresence>
         </div>
-        {isOpen && <div className={styles.Overlay} />}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className={styles.Overlay}
+              key="modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ ease: "easeOut", duration: 0.5 }}
+            />
+          )}
+        </AnimatePresence>
         <div className={styles.NavDesktop}>
           <img src={Logo} alt="Logo" className={styles.Logo} />
           <ul className={cx(styles.NavListDesktop)}>

@@ -23,6 +23,10 @@
   background-color: $color-white;
 }
 
+.NavBarDisabled {
+  background-color: transparent;
+}
+
 .Menu {
   flex: 0 1 30%;
 }
@@ -36,7 +40,7 @@ svg.HamburgerMenu {
 .NavList {
   display: flex;
   justify-content: space-between;
-  flex: 0 1 70%;
+  flex: 0 1 80%;
 
   li {
     font-family: 'Spartan', sans-serif;
