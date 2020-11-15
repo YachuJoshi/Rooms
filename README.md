@@ -1,1 +1,1 @@
-## Rooms E-commerce Homepage created in React 😋
+## Rooms E-commerce Homepage in React.
