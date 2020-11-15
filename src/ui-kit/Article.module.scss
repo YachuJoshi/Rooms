@@ -7,7 +7,7 @@
   }
 
   @include media-breakpoint-up(xl) {
-    padding: 60px;
+    padding: 60px 40px;
   }
 
   @include media-breakpoint-up(xxl) {
@@ -34,6 +34,14 @@
   margin: 20px 0 40px;
 
   @include media-breakpoint-up(lg) {
+    margin: 20px 0;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin: 28px 0;
+  }
+
+  @include media-breakpoint-up(xxl) {
     margin: 32px 0;
   }
 }

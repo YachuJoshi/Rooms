@@ -1,10 +1,5 @@
 @import '../sass/main.scss';
 
-$padding-tb-md: 24px;
-$padding-lr-md: 28px;
-$padding-tb-lg: 28px;
-$padding-lr-lg: 32px;
-
 .Pagination {
   display: flex;
   align-self: flex-end;
@@ -37,11 +32,7 @@ $padding-lr-lg: 32px;
     }
 
     @include media-breakpoint-up(md) {
-      padding: $padding-tb-md $padding-lr-md;
-    }
-
-    @include media-breakpoint-up(lg) {
-      padding: $padding-tb-lg $padding-lr-lg;
+      padding: 24px 28px;
     }
 
     @include media-breakpoint-up(xxl) {

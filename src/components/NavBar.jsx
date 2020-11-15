@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  useTransform,
+  useViewportScroll,
+  AnimatePresence,
+} from "framer-motion";
 import cx from "classnames";
 
 import Logo from "../images/logo.svg";
@@ -13,6 +18,12 @@ const navItems = ["home", "shop", "about", "contact"];
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { scrollYProgress } = useViewportScroll();
+  const backgroundColorTransform = useTransform(
+    scrollYProgress,
+    [0, 0.1],
+    ["rgba(0,0,0,0)", "rgba(0,0,0, 0.8)"]
+  );
   const MenuIcon = !isOpen ? HamburgerMenu : CloseButton;
 
   useEffect(() => {
@@ -26,11 +37,12 @@ export const NavBar = () => {
   return (
     <header>
       <nav className={styles.Nav}>
-        <div
+        <motion.div
           className={cx(styles.NavBar, {
             [styles.NavBarActive]: isOpen,
             [styles.NavBarDisabled]: !isOpen,
           })}
+          style={{ backgroundColor: !isOpen && backgroundColorTransform }}
         >
           <MenuIcon
             className={cx(styles.Menu, {
@@ -47,6 +59,7 @@ export const NavBar = () => {
                 initial={{ translateY: -100 }}
                 animate={{ translateY: 0 }}
                 exit={{ translateY: -100 }}
+                transition={{ ease: "easeOut", duration: 0.5 }}
               >
                 {navItems.map((item, index) => (
                   <li key={index}>{item}</li>
@@ -54,7 +67,7 @@ export const NavBar = () => {
               </motion.ul>
             )}
           </AnimatePresence>
-        </div>
+        </motion.div>
         <AnimatePresence>
           {isOpen && (
             <motion.div

@@ -13,7 +13,8 @@ export const Gallery = ({ currentIndex }) => {
           style={{
             transform: `translate3d(${currentIndex * -100}% , 0, 0)`,
           }}
-          src={item.img}
+          src={item.imgMobile}
+          srcSet={item.imgDesktop}
           alt="Hero"
           key={index}
           figClassName={styles.HeroImageContainer}
